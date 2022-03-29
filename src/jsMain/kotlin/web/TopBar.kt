@@ -1,13 +1,15 @@
 package web
 
 import androidx.compose.runtime.Composable
+import data.powers.PowerType
 import org.jetbrains.compose.web.css.*
-import org.jetbrains.compose.web.css.selectors.attr
 import org.jetbrains.compose.web.dom.*
 import web.theme.Stylesheet
 
 @Composable
 fun header() {
+
+    val type = PowerType.values()
     Div(
         attrs = { classes(Stylesheet.container) }
     ) {

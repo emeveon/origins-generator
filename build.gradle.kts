@@ -4,7 +4,7 @@ plugins {
     kotlin("multiplatform") version "1.5.21"
     application
     java
-    id("org.jetbrains.compose") version "1.0.0-alpha3"
+    id("org.jetbrains.compose") version "1.1.1"
 }
 
 group = ""
@@ -17,6 +17,15 @@ repositories {
 }
 
 kotlin {
+    jvm {
+        compilations.all {
+            kotlinOptions.jvmTarget = "11"
+        }
+        withJava()
+        testRuns["test"].executionTask.configure {
+            useJUnitPlatform()
+        }
+    }
     js(IR) {
         browser {
             testTask {

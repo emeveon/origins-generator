@@ -7,5 +7,9 @@ enum class PowerType(val id: String) {
     LikeAir("origins:like_air"),
     Tailwind("origins:tailwind"),
     Oviparous("origins:lay_eggs"),
-    Vegetarian("origins:vegetarian")
+    Vegetarian("origins:vegetarian");
+
+    fun getValues(): Set<PowerType> {
+        return PowerType.values().toSet()
+    }
 }
