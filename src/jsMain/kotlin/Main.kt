@@ -1,7 +1,7 @@
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import data.powers.PowerType
+import data.Origin
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.Button
 import org.jetbrains.compose.web.dom.Div
@@ -30,21 +30,13 @@ fun main() {
             }
 
             Button(attrs = {
-                onClick { count += 1 }
+                onClick {
+                    count += 1
+                    Origin.downloadDatapack()
+                }
             }) {
                 Text("+")
             }
-
-            Div({style {flexDirection(FlexDirection.Column)}}){
-                for (i in 0..count) {
-                    if (i < PowerType.values().size) {
-                        Div {
-                            Text(PowerType.values()[i].name)
-                        }
-                    }
-                }
-            }
-
         }
     }
 }
